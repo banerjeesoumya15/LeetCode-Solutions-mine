@@ -44,3 +44,48 @@ class Solution:
             temp = ls if len(ls)>len(rs) else rs
             longest = temp if len(temp)>len(longest) else longest
         return longest
+      
+'''
+My Submission
+https://leetcode.com/problems/longest-palindromic-substring/
+'''
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        
+        if s == s[::-1]:
+            return s
+        
+        longest = ""
+        
+        for i in range(len(s)):
+            
+            # odd palindrome
+            l = r = i
+            odd_p = s[i]
+            while(l>=0 and r<len(s) and s[l]==s[r]):
+                if l==r:
+                    odd_p = s[l]
+                else:
+                    odd_p = s[l] + odd_p + s[r]
+                l-=1
+                r+=1
+                
+            longest = odd_p[:] if len(odd_p) > len(longest) else longest[:]
+            #len_odd = l-r+1
+            
+            # even palindrome
+            l = i
+            r = i+1
+            even_p = ""
+            while(l>=0 and r<len(s) and s[l]==s[r]):
+                even_p = s[l] + even_p + s[r]
+                l-=1
+                r+=1
+                
+            longest = even_p[:] if len(even_p) > len(longest) else longest[:]
+            #len_even = l-r+1
+            
+        return longest
+            
+            
+        
