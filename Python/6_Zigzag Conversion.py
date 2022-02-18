@@ -3,6 +3,12 @@ https://leetcode.com/problems/zigzag-conversion/
 
 Runtime: 54 ms, faster than 91.84% of Python3 online submissions for Zigzag Conversion.
 Memory Usage: 14.1 MB, less than 74.23% of Python3 online submissions for Zigzag Conversion.
+
+
+Complexity Analysis:
+Time Complexity: O(n), where n == len(s)
+Space Complexity: O(n)
+
 '''
 
 class Solution:
